@@ -1,10 +1,10 @@
-﻿namespace Fing.Web.Core.Controllers
+﻿namespace FingWeb.Core.Controllers
 
 open System
 open System.Web.Mvc
 open System.Reflection
 
-open Fing.Web.Core
+open FingWeb.Core
 
 /// Main controller for ASP.NET MVC pages
 [<HandleError>]
@@ -15,5 +15,7 @@ type MainController() =
     x.View()
 
   member x.Search(search : SearchInput) =
-    let vm = SearchViewModel(search.SearchTerm)
+    let results = Fing.typeFind search.SearchTerm
+    let vm = SearchViewModel(search.SearchTerm, results)
+
     x.View(vm)

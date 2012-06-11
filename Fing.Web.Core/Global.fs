@@ -1,4 +1,4 @@
-﻿namespace Fing.Web.Core
+﻿namespace FingWeb.Core
 
 open System
 open System.Collections.Generic
