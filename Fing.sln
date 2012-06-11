@@ -11,6 +11,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fing", "Fing\Fing.fsproj", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FingTest", "FingTest\FingTest.fsproj", "{A61F597A-6803-4754-9484-7B13A27B7193}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fing.Web", "Fing.Web\Fing.Web.csproj", "{C5C80C1E-BAF9-4F2A-8C4C-9D9DE8A7E2F7}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fing.Web.Core", "Fing.Web.Core\Fing.Web.Core.fsproj", "{52A857F8-AEA8-4D6B-86BC-C4912E990451}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{A61F597A-6803-4754-9484-7B13A27B7193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A61F597A-6803-4754-9484-7B13A27B7193}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A61F597A-6803-4754-9484-7B13A27B7193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C80C1E-BAF9-4F2A-8C4C-9D9DE8A7E2F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C80C1E-BAF9-4F2A-8C4C-9D9DE8A7E2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C80C1E-BAF9-4F2A-8C4C-9D9DE8A7E2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C80C1E-BAF9-4F2A-8C4C-9D9DE8A7E2F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A857F8-AEA8-4D6B-86BC-C4912E990451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A857F8-AEA8-4D6B-86BC-C4912E990451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A857F8-AEA8-4D6B-86BC-C4912E990451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A857F8-AEA8-4D6B-86BC-C4912E990451}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

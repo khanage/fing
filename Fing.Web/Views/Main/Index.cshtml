@@ -1,0 +1,9 @@
+﻿@{ ViewBag.Title = "Home Page"; }
+
+<h2>Welcome</h2>
+Please enter your type:<br />
+@using (Html.BeginForm("Search", "Main"))
+{
+  @Html.TextBox("SearchTerm")
+  <input type="submit" value="Fing" />
+}

@@ -30,10 +30,24 @@
     <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FSharp.PowerPack.Metadata, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a19089b1c74d0809" />
+    <Reference Include="FSharp.PowerPack">
+      <HintPath>..\packages\FSPowerPack.Community.2.1.3.1\Lib\Net20\FSharp.PowerPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.PowerPack.Linq">
+      <HintPath>..\packages\FSPowerPack.Community.2.1.3.1\Lib\Net20\FSharp.PowerPack.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.PowerPack.Metadata">
+      <HintPath>..\packages\FSPowerPack.Community.2.1.3.1\Lib\Net20\FSharp.PowerPack.Metadata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
-    <Reference Include="nunit.framework, Version=2.5.8.10295, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
@@ -41,6 +55,7 @@
     <Compile Include="TestCases.fs" />
     <None Include="Script.fsx" />
     <Compile Include="Tester.fs" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fing\Fing.fsproj">
