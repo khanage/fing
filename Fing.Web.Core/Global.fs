@@ -7,6 +7,8 @@ open System.Web
 open System.Web.Mvc
 open System.Web.Routing
 
+open FingWeb.Core
+
 /// F# record that can be used for creating route information
 type Route = 
   { controller : string

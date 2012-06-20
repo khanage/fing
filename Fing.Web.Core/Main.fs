@@ -15,7 +15,8 @@ type MainController() =
     x.View()
 
   member x.Search(search : SearchInput) =
-    let results = Fing.typeFind search.SearchTerm
+    let fings = Fing.typeFind search.SearchTerm
+    let results = fings |> Seq.map (fun x -> FingWeb.Core.Result(x)) 
     let vm = SearchViewModel(search.SearchTerm, results)
-
+    
     x.View(vm)

@@ -7,9 +7,21 @@
 
 <h2>Search</h2>
 
+@using (Html.BeginForm("Search", "Main"))
+{
+  @Html.TextBox("SearchTerm", @Model.SearchTerm)
+  <input type="submit" value="Fing" />
+}
+
 <div>@Model.SearchTerm</div>
 
-@foreach(Fing.Result result in Model.Results)
+@foreach(var result in Model.Results)
 {
-    <div>@result.mem.DisplayName</div>
+    <div>
+      <h3>@result.FriendlyName</h3>
+      <sub>@result.TypeCode</sub>
+      <code>
+         @result.DocString
+      </code>
+    </div>
 }
