@@ -1,5 +1,5 @@
 ﻿@model FingWeb.Core.SearchViewModel
-
+@using FingWeb.Core
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -21,7 +21,7 @@
       <h3>@result.FriendlyName</h3>
       <sub>@result.TypeCode</sub>
       <code>
-         @result.DocString
+         @Html.OptionalContent(result.DocString, "No content available")
       </code>
     </div>
 }

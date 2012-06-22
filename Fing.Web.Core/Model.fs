@@ -1,5 +1,9 @@
 ﻿namespace FingWeb.Core
 
+module Option =
+   let choose (mb: 'a Option) (a: 'a): 'a
+      = if Option.isSome mb then mb.Value else a
+
 type SearchInput () =
     let mutable search = System.String.Empty
 
@@ -13,7 +17,7 @@ type Result(result: Fing.Result) =
    member x.TypeCode
       with get () = Types.format result.typ
    member x.DocString
-      with get () = "Unknown"
+      with get () = result.doc
 
 type SearchViewModel (searchTerm : string, fingResults : Result seq) =
     member x.SearchTerm 

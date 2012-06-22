@@ -25,10 +25,12 @@ let rec factorialOrder = function
 | [] -> [[]]
 | l when List.length l > 5 -> [l]
 | l -> [for x,xs in roundRobin l do for ys in factorialOrder xs -> x::ys]
+
 let argOrder ts =
   if List.length ts = 2 then [ts]
   else let args,ret = Seq.butLast ts
        List.map (fun args -> args @ [ret]) (factorialOrder (List.ofSeq args))
+
 let rec variants : Typ -> Typ list = function
 | Arrow ts -> 
   ts |> List.map variants |> argOrder |> List.collect listSequence |> List.map Arrow
@@ -44,5 +46,6 @@ let rec variants : Typ -> Typ list = function
 | Array(n, t) -> List.map (cr Array n) (variants t)
 // constraint variants go here (maybe)
 | Constraint(c, t) -> List.map (cr Constraint c) (variants t)
+
 let rec matches user library = 
   List.exists (fun t -> index t = library) (variants user)

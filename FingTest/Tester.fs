@@ -40,7 +40,7 @@ type public Tester() =
   let ts = seq {
     for e in core.Entities do
     for m in e.MembersOrValues do
-    yield {Fing.ent=e; Fing.mem=m; Fing.typ=FSharpTypes.cvt m.Type |> Types.index |> FSharpTypes.debinarize} 
+    yield {Fing.ent=e; Fing.mem=m; Fing.typ=FSharpTypes.cvt m.Type |> Types.index |> FSharpTypes.debinarize; doc=None} 
   }
   let actuallyFound expected (t : Fing.Result) =
     Fing.typeFind (format t.typ) |> Seq.tryFind ((=) expected)

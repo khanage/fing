@@ -8,3 +8,10 @@ module ModelBinders =
          member x.BindModel (controllerContext: ControllerContext, bindingContext: ModelBindingContext) : obj =
             None :> obj
 
+   type AwesomeModelBinder() =
+      inherit DefaultModelBinder()
+
+      override x.BindModel (controllerContext: ControllerContext, bindingContext: ModelBindingContext): obj =
+         
+         base.BindModel(controllerContext, bindingContext)
+

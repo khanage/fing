@@ -25,7 +25,7 @@ let parsec = Microsoft.FSharp.Metadata.FSharpAssembly.FromFile "C:/dev/Fing/Fing
 let ts = seq { // Seq.choose id (seq { 
   for e in core.Entities do
   for m in e.MembersOrValues do
-  yield {Fing.ent=e; Fing.mem=m; Fing.typ=FSharpTypes.cvt m.Type |> Types.index |> FSharpTypes.debinarize} 
+  yield {Fing.ent=e; Fing.mem=m; Fing.typ=FSharpTypes.cvt m.Type |> Types.index |> FSharpTypes.debinarize; doc=None} 
 }
 let rawts = seq {
   for e in core.Entities do

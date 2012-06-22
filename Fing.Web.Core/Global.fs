@@ -16,7 +16,7 @@ type Route =
 
 /// Represents the application and registers routes
 type Global() =
-  inherit System.Web.HttpApplication() 
+  inherit HttpApplication() 
 
   static member RegisterRoutes(routes:RouteCollection) =
     routes.IgnoreRoute("{resource}.axd/{*pathInfo}")

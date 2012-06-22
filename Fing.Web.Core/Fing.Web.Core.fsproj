@@ -38,6 +38,7 @@
     <Compile Include="Model.fs" />
     <Compile Include="Global.fs" />
     <Compile Include="Main.fs" />
+    <Compile Include="HtmlHelpers.fs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
