@@ -8,6 +8,10 @@ open System.Web.Mvc
 open System.Web.Routing
 
 open FingWeb.Core
+open Ninject
+open Ninject.Web.Common
+open Ninject.Web.Mvc
+
 
 /// F# record that can be used for creating route information
 type Route = 
@@ -16,7 +20,7 @@ type Route =
 
 /// Represents the application and registers routes
 type Global() =
-  inherit HttpApplication() 
+  inherit NinjectHttpApplication() 
 
   static member RegisterRoutes(routes:RouteCollection) =
     routes.IgnoreRoute("{resource}.axd/{*pathInfo}")
@@ -24,8 +28,20 @@ type Global() =
       ( "Default"
       , "{controller}/{action}"
       , { controller = "Main"
-        ; action = "Index" })
+        ; action     = "Index" })
 
-  member x.Start() =
+  override x.OnApplicationStarted() =
+    base.OnApplicationStarted()
+
     AreaRegistration.RegisterAllAreas()
-    Global.RegisterRoutes(RouteTable.Routes)
+
+    GlobalFilters.Filters.Add(HandleErrorAttribute())
+    Global.RegisterRoutes(RouteTable.Routes) |> ignore
+    
+    ()
+
+  override x.CreateKernel() =
+    let standardKernel = new StandardKernel(new ContainerModule());
+
+    DependencyResolver.SetResolver(new NinjectDependencyResolver(standardKernel))
+    standardKernel :> IKernel

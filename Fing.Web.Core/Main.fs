@@ -8,10 +8,10 @@ open FingWeb.Core
 
 /// Main controller for ASP.NET MVC pages
 [<HandleError>]
-type MainController() =
+type MainController(searcher: FSTypeDb) =
   inherit Controller()
 
-  member x.Index() =
+  member x.Index(search: SearchInput) =
     x.View()
 
   member x.Search(search : SearchInput) =

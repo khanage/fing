@@ -1,9 +1,23 @@
-﻿@{ ViewBag.Title = "Home Page"; }
+﻿@model FingWeb.Core.SearchViewModel
+
+@{ ViewBag.Title = "Home Page"; }
 
 <h2>Welcome</h2>
 Please enter your type:<br />
-@using (Html.BeginForm("Search", "Main"))
+@using (Html.BeginForm("Index", "Main", FormMethod.Get))
 {
   @Html.TextBox("SearchTerm")
   <input type="submit" value="Fing" />
+}
+
+@if (Model.Results.Count() > 0)
+{
+<div class="search-results">
+    @foreach (var result in Model.Results)
+    {
+        <div class="result">
+            @result.mem.DisplayName
+        </div>
+    }   
+</div>
 }
