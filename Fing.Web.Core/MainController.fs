@@ -11,15 +11,18 @@ open FingWeb.Core
 type MainController(searcher: FSTypeDb) =
   inherit Controller()
 
-  member x.Index(search: SearchInput) =
-    x.View()
-
-  member x.Search(search : SearchInput) =
+  let buildVM (search : SearchInput) =
     let fings = Fing.search search.SearchTerm
     
     let results 
       = fings |> Seq.map (fun (x: Fing.Result) -> x)
               |> Seq.map (fun x -> FingWeb.Core.Result(x))
-    let vm = SearchViewModel(search.SearchTerm, results)
+    SearchViewModel(search.SearchTerm, results)
+
+  member x.Index() =
+    x.View()
+
+  member x.Search(search : SearchInput) =
+    let vm = buildVM search
     
     x.View(vm)

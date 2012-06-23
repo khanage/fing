@@ -37,7 +37,7 @@
     <Compile Include="Types.fs" />
     <Compile Include="OptionModelBinder.fs" />
     <Compile Include="Model.fs" />
-    <Compile Include="Main.fs" />
+    <Compile Include="MainController.fs" />
     <Compile Include="ContainerModule.fs" />
     <Compile Include="Global.fs" />
     <Compile Include="Global.fs" />
