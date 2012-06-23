@@ -11,8 +11,6 @@ open FingWeb.Core
 type MainController(searcher: FSTypeDb) =
   inherit Controller()
 
-  //new() = MainController(FingTypeDb())
-
   member x.Index(search: SearchInput) =
     let results = searcher.Search(search.SearchTerm)
 
