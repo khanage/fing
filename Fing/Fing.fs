@@ -11,12 +11,14 @@ type Result = {
   ent : FSharpEntity
   mem : FSharpMemberOrVal
   typ : Typ
-  doc : string Option
+  mutable doc : string Option
 }
 
 let entite { ent = e } = e
 let membre { mem = m } = m
 let tipe { typ = t } = t
+let documentation { doc = d } = d
+
 let private formatResult { ent = e; mem = m; typ = t } = 
   sprintf "%s.%s\t\t%s" e.DisplayName m.DisplayName (format t)
 

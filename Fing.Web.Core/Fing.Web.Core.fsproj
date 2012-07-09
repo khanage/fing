@@ -93,6 +93,8 @@
       <Project>{52a60ca3-ff6b-4e59-a606-c738d6d14281}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebActivator">
       <HintPath>..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
       <Private>True</Private>
