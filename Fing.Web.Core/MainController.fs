@@ -8,28 +8,22 @@ open System.Diagnostics
 
 open FingWeb.Core
 
-[<AutoOpen>]
-module XmlHelpers = 
-  let xname x = XName.op_Implicit x
-
 /// Main controller for ASP.NET MVC pages
 [<HandleError>]
-type MainController(searcher: FSTypeDb) =
+type MainController(searcher: FSTypeDb, docRepo: DocumentationRepository) =
   inherit Controller()
 
-  let filePath = @"C:\Program Files (x86)\Reference Assemblies\Microsoft\FSharp\2.0\Runtime\v4.0\FSharp.Core.xml"
-  let doc = XDocument.Load(filePath).Descendants(xname "member") |> Seq.filter (fun elem -> elem.Attribute(xname "name").Value <> "") |> Seq.toList
 
-  let buildVM (search : SearchInput) =
+  member private x.buildVM (search : SearchInput) =
     let fings = Fing.search search.SearchTerm
-    
-    let matcher (result: Fing.Result) (elem: XElement) = elem.Attribute(xname "name").Value = result.mem.XmlDocSig
-    let docString (elem: XElement) = elem.Value
 
-    let findDoc name = doc |> List.tryFind (matcher name) |> Option.map docString
+    let setDocs (result: Fing.Result) =
+      let doc = docRepo.FindDoc result |> Option.map AbstractDocumentation.fromXElem
+      result.doc <- doc
+      result
 
     let results 
-      = fings |> Seq.map (fun (x: Fing.Result) -> x.doc <- findDoc x; x)
+      = fings |> Seq.map setDocs
               |> Seq.map (fun x -> FingWeb.Core.Result(x))
     SearchViewModel(search.SearchTerm, results)
 
@@ -37,6 +31,6 @@ type MainController(searcher: FSTypeDb) =
     x.View()
 
   member x.Search(search : SearchInput) =
-    let vm = buildVM search
+    let vm = x.buildVM search
     
     x.View(vm)

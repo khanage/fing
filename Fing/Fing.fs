@@ -7,11 +7,13 @@ open Types
 open Util
 open Search
 
+type AbstractDocumentation = (string * string) seq
+
 type Result = {
   ent : FSharpEntity
   mem : FSharpMemberOrVal
   typ : Typ
-  mutable doc : string Option
+  mutable doc : AbstractDocumentation Option
 }
 
 let entite { ent = e } = e

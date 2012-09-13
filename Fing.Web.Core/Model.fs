@@ -1,8 +1,8 @@
 ﻿namespace FingWeb.Core
 
-module Option =
-   let choose (mb: 'a Option) (a: 'a): 'a
-      = if Option.isSome mb then mb.Value else a
+open Fing
+
+open System.Xml.Linq
 
 type SearchInput () =
     let mutable search = System.String.Empty
@@ -12,12 +12,17 @@ type SearchInput () =
         and  set v  = search <- v
 
 type Result(result: Fing.Result) =
-   member x.FriendlyName
-      with get () = result.ent.DisplayName + "." + result.mem.DisplayName
-   member x.TypeCode
-      with get () = Types.format result.typ
-   member x.DocString
-      with get () = result.doc
+  let fromAbstractDoc (doc: AbstractDocumentation) =
+    let elemMaker (name, inner) = XElement(xname "div", XAttribute(xname "data-doc", name), inner)
+    let elems = doc |> Seq.map elemMaker
+    System.String.Join("", elems)
+
+  member x.FriendlyName
+    with get () = result.ent.DisplayName + "." + result.mem.DisplayName
+  member x.TypeCode
+    with get () = Types.format result.typ
+  member x.DocString
+    with get () = result.doc |> Option.maybe Seq.empty
 
 type SearchViewModel (searchTerm : string, fingResults : Result seq) =
     member x.SearchTerm 

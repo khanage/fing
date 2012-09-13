@@ -7,7 +7,7 @@
 
 <h2>Search</h2>
 
-@using (Html.BeginForm("Search", "Main"))
+@using (Html.BeginForm("Search", "Main", FormMethod.Get))
 {
   @Html.TextBox("SearchTerm", @Model.SearchTerm)
   <input type="submit" value="Fing" />
@@ -17,11 +17,22 @@
 
 @foreach(var result in Model.Results)
 {
-    <div>
-      <h3>@result.FriendlyName</h3>
-      <sub>@result.TypeCode</sub>
-      <code>
-         @Html.OptionalContent(result.DocString, "No content available")
-      </code>
-    </div>
+  <div>
+    
+    <h3>@result.FriendlyName</h3>
+    <code>@result.TypeCode</code>
+
+    @if (result.DocString.Count() == 0)
+    {
+      <div>No content available</div>
+    }
+      
+    @foreach (var elem in result.DocString)
+    {
+      <div class="xml-doc-item" data-type="@elem.Item1">
+        @elem.Item2
+      </div>
+    }
+
+  </div>
 }
