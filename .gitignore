@@ -13,3 +13,4 @@ _ReSharper*
 Fing.Web/bin/*
 *.[fc]sproj.user
 packages/*
+packages/
