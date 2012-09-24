@@ -58,7 +58,7 @@
       <HintPath>..\fparsec\main\Build\VS9\bin\Debug\FParsecCS.dll</HintPath>
     </Reference>
     <Reference Include="FSharp.PowerPack">
-      <HintPath>..\packages\FSPowerPack.Community.2.1.3.1\Lib\Net40\FSharp.PowerPack.dll</HintPath>
+      <HintPath>..\packages\FSPowerPack.Core.Community.2.0.1.0\Lib\Net40\FSharp.PowerPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.PowerPack.Linq">
@@ -66,7 +66,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.PowerPack.Metadata">
-      <HintPath>..\packages\FSPowerPack.Community.2.1.3.1\Lib\Net40\FSharp.PowerPack.Metadata.dll</HintPath>
+      <HintPath>..\packages\FSPowerPack.Metadata.Community.2.0.0.1\Lib\Net40\FSharp.PowerPack.Metadata.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.PowerPack.Parallel.Seq">
