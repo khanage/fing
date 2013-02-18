@@ -1,10 +1,17 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D1AEB2AC-CCE7-41F3-ACFD-3EA88F409FD0}"
 	ProjectSection(SolutionItems) = preProject
 		license.txt = license.txt
 		readme.txt = readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1A0F9C88-50EE-4464-B3A7-04949A0B1E39}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fing", "Fing\Fing.fsproj", "{52A60CA3-FF6B-4E59-A606-C738D6D14281}"
@@ -14,13 +21,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fing.Web", "Fing.Web\Fing.Web.csproj", "{C5C80C1E-BAF9-4F2A-8C4C-9D9DE8A7E2F7}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fing.Web.Core", "Fing.Web.Core\Fing.Web.Core.fsproj", "{52A857F8-AEA8-4D6B-86BC-C4912E990451}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1A0F9C88-50EE-4464-B3A7-04949A0B1E39}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
