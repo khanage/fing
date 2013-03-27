@@ -1,14 +1,10 @@
-Fing/bin/
-Fing/obj/
-FingTest/bin/
-FingTest/obj/
-fing-0.1.zip
-fing.zip
+!package/
 
+bin/
+obj/
+
+*.zip
 _ReSharper*
 *.suo
-*/bin/Debug/*
 *.FileListAbsolute.txt
-*/obj/*
-Fing.Web/bin/*
 *.[fc]sproj.user

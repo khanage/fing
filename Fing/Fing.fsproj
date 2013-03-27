@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Fing</RootNamespace>
     <AssemblyName>Fing</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Name>Fing</Name>
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -56,13 +56,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FParsec">
-      <HintPath>..\fparsec\main\Build\VS9\bin\Debug\FParsec.dll</HintPath>
+    <Reference Include="FParsec, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null">
+      <Private>True</Private>
     </Reference>
-    <Reference Include="FParsecCS">
-      <HintPath>..\fparsec\main\Build\VS9\bin\Debug\FParsecCS.dll</HintPath>
+    <Reference Include="FParsecCS, Version=0.8.0.0, Culture=neutral, PublicKeyToken=null">
+      <Private>True</Private>
     </Reference>
-    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"/>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="FSharp.PowerPack">
       <HintPath>..\packages\FSPowerPack.Core.Community.3.0.0.0\lib\Net40\FSharp.PowerPack.dll</HintPath>
       <Private>True</Private>
