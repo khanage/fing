@@ -7,7 +7,6 @@ open System.Web
 open System.Web.Mvc
 open System.Web.Routing
 
-open FingWeb.Core
 open Ninject
 open Ninject.Web.Common
 open Ninject.Web.Mvc
